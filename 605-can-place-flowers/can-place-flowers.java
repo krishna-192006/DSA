@@ -6,7 +6,7 @@ class Solution {
             if (flowerbed[i]==1) {
                 i++;
             }
-            else if(flowerbed.length>1&&i==flowerbed.length-1&&flowerbed[flowerbed.length-1]==0&&flowerbed[flowerbed.length-2]==0){
+            else if(i==flowerbed.length-1&&flowerbed[flowerbed.length-1]==0&&flowerbed[flowerbed.length-2]==0){
                 count++;
             }
             else{
