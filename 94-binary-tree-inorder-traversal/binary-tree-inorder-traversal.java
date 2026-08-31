@@ -16,12 +16,32 @@
 class Solution {
     List<Integer> li = new ArrayList<>();
     public List<Integer> inorderTraversal(TreeNode root) {
-        if(root == null) {
-            return li;
+    // using stack
+    Stack<TreeNode> st = new Stack<>();
+    // st.push(root.val);
+    TreeNode node = root;
+    while(true) {
+        if(node != null) {
+            st.push(node);
+            node = node.left;
+        } else {
+            if(st.isEmpty()) {
+                break;
+            }
+            node = st.pop();
+            li.add(node.val);
+            node = node.right;
         }
-        inorderTraversal(root.left);
-        li.add(root.val);
-        inorderTraversal(root.right);
+    }
     return li;
+
+    //  Iterative traversal
+    //     if(root == null) {
+    //         return li;
+    //     }
+    //     inorderTraversal(root.left);
+    //     li.add(root.val);
+    //     inorderTraversal(root.right);
+    // return li;
     }
 }
